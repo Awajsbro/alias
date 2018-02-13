@@ -1,7 +1,7 @@
 alias 42check='bash ~/42FileChecker/42FileChecker.sh'
 alias clean='rm -f *.o ; rm -f a.out ; rm -f .*.swp ; rm -f .*.swo ; rm *.gch'
-alias majlib='rm -f libft/* && cp /Users/awajsbro/project/libft/* libft/ && rm libft/auteur'
-alias remakelib='make re /Users/awajsbro/project/libft && make clean /Users/awajsbro/project/libft'
+alias majlib='/Users/awajsbro/alias/script/majlib.sh'
+alias remakelib='make re -C /Users/awajsbro/project/libft && make clean -C /Users/awajsbro/project/libft'
 
 
 
