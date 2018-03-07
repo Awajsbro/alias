@@ -24,6 +24,5 @@ elif [ "$lib" = "1" ]; then
 else
 	rm -f libft/*
 	cp /Users/awajsbro/project/libft/* libft/
-	rm libft/auteur libft/makefile
 	echo -e "\n	libft mise a jour\n"
 fi
