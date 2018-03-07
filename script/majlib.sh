@@ -9,11 +9,10 @@ if [ "$path1" = "$path2" ]; then
 elif [ "$lib" = "1" ]; then
 {
 	echo -e "il n'y a pas de lib a mettre a jour, creer un dossier libft ? \033[31my/n\033[0m"
-	read var
+	read -rsn1 var
 	if [ "$var" = "y" ] || [ "$var" = "Y" ]; then
 		mkdir libft
 		cp /Users/awajsbro/project/libft/* libft/
-		rm libft/auteur libft/makefile
 		echo -e "\n	libft creer\n"
 	elif [ "$var" = "N" ] || [ "$var" = "n" ]; then
 		echo "bon bah fait moi signe lorsque tu sauras ce que tu veux"
