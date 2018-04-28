@@ -1,7 +1,7 @@
 #!/bin/bash
 
 path1=$(pwd)
-path2="/Users/awajsbro/project"
+path2="/sgoinfre/goinfre/Perso/awajsbro/project"
 lib=$(test -d libft ; echo $?)
 
 if [ "$path1" = "$path2" ]; then
@@ -12,8 +12,9 @@ elif [ "$lib" = "1" ]; then
 	read -rsn1 var
 	if [ "$var" = "y" ] || [ "$var" = "Y" ]; then
 		mkdir libft
-		cp /Users/awajsbro/project/libft/* libft/
-		echo -e "\n	libft creer\n"
+		cp -R /Users/awajsbro/project/libft/* libft/
+		rm libft/auteur
+		echo -e "\n	\033[32mlibft creer\033[0m\n"
 	elif [ "$var" = "N" ] || [ "$var" = "n" ]; then
 		echo "bon bah fait moi signe lorsque tu sauras ce que tu veux"
 	else
@@ -22,7 +23,8 @@ elif [ "$lib" = "1" ]; then
 	fi
 }
 else
-	rm -f libft/*
-	cp /Users/awajsbro/project/libft/* libft/
-	echo -e "\n	libft mise a jour\n"
+	rm -rf libft/*
+	cp -R /Users/awajsbro/project/libft/* libft/
+	rm libft/auteur
+	echo -e "\n	\033[32mlibft mise a jour\033[0m\n"
 fi
