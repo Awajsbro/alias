@@ -1,7 +1,7 @@
 #!/bin/bash
 
 path1=$(pwd)
-path2="/sgoinfre/goinfre/Perso/awajsbro/project"
+path2="/Users/awajsbro/project"
 lib=$(test -d libft ; echo $?)
 
 if [ "$path1" = "$path2" ]; then
