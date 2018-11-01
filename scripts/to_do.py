@@ -13,23 +13,24 @@ add = []
 rm = []
 
 print("\n{}\n{}\n{}".format(43 * "-", HELP, 43 * "="))
+
+# creation du dossier si existe pas
 try :
 	os.mkdir(FOLDER)
 except FileExistsError :
 	pass
+
+# ouverture du fichier
 try :
 	file = open(FILE, "r")
-	i = 0
 	task = []
 	for line in file :
 		task.append(line)
-		print("{} : {}".format(i, line), end="")
-		i += 1
-	if i == 0 :
-		print("{}\tYou have nothing to do yet{}".format(RED, RESET))
-	print("{}\n".format(43 * "-"))
+	file.close()
 except FileNotFoundError :
-	pass
+	task = []
+
+# prepartion des ajout et suppresion
 i = 0
 for arg in sys.argv :
 	if arg == "--add" :
@@ -42,16 +43,26 @@ for arg in sys.argv :
 		rm.append(arg)
 rm = sorted(rm)
 rm.reverse()
+
+# suppression des taches puis ajout des taches
 for index in rm :
 	try :
 		index = int(index)
 		del task[index]
 	except (IndexError, ValueError) :
 		pass
-try :
-	add = task + add
-except NameError :
-	print("{}\tYou have nothing to do yet{}\n{}\n".format(RED, RESET, 43 * "-"))
+task = task + add
+
+# reecriture du fichier si modification
 if i != 0 :
 	file = open(FILE, "w")
-	file.write("".join(add))
+	file.write("".join(task))
+
+# print des taches
+i = 0
+for line in task :
+	print("{} : {}".format(i, line), end="")
+	i += 1
+if i == 0 :
+	print("{}\tYou have nothing to do yet{}".format(RED, RESET))
+print("{}\n".format(43 * "-"))
