@@ -57,6 +57,7 @@ task = task + add
 if i != 0 :
 	file = open(FILE, "w")
 	file.write("".join(task))
+	file.close()
 
 # print des taches
 i = 0
